@@ -1,0 +1,14 @@
+
+.green-background {
+    background-color: rgb(30, 126, 30);
+}
+.suit {
+    font-size: 100px;
+}
+#number {
+    font-size: 100px;
+}
+h2 {
+    margin-right: 2rem;
+    color: #fff;
+}
