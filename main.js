@@ -44,9 +44,9 @@ window.onload = function() {
     let userWidth = parseInt(document.getElementById("widthInput").value, 10);
     let userHeight = parseInt(document.getElementById("heightInput").value, 10);
 
-    const minWidth = 100;
+    const minWidth = 200;
     const maxWidth = 500;
-    const minHeight = 140;
+    const minHeight = 350;
     const maxHeight = 700;
 
     if (userWidth < minWidth) {
@@ -77,15 +77,19 @@ document.getElementById("changeSizeButton").addEventListener("click", function()
 });
 
   // MULTI-CARDS
+
   function getMultiCards() {
       let multiCards = document.querySelectorAll(".multi-card");
-
-      multiCards.forEach(card => {
-          card.classList.add("hidden");
+  
+      // Agregar clase 'hidden' a todos los elementos excepto al primero
+      multiCards.forEach((card, index) => {
+          if (index !== 0) {
+              card.classList.add("hidden");
+          }
       });
-
-      let numToShow = Math.floor(Math.random() * multiCards.length) + 1;
-      let shownIndices = [];
+  
+      let numToShow = Math.floor(Math.random() * (multiCards.length - 1)) + 1; // Restar 1 para excluir el primer elemento
+      let shownIndices = [0]; // Añadir índice 0 (primer elemento) al array mostrado
       for (let i = 0; i < numToShow; i++) {
           let randomIndex;
           do {
@@ -97,7 +101,10 @@ document.getElementById("changeSizeButton").addEventListener("click", function()
       }
   }
 
-  document.getElementById("multi-card-button").addEventListener("click", getMultiCards);
+  document.getElementById("multi-card-button").addEventListener("click", function() {
+    getMultiCards(); // Llama a la función getMultiCards
+    generateNewCard(); // Llama a la función generateNewCard
+});
 };
 
 
