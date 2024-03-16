@@ -5,6 +5,7 @@ body {
     background-image: url("img/background2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: bottom 0;
     font-family: "Luckiest guy";
 }
 .cards-container {
@@ -80,7 +81,7 @@ input {
     box-shadow: 0.3em 0.3em;
     cursor: pointer;
     margin-left: 2em;
-    height: 80px;
+    
   }
   
   .btn:hover {
