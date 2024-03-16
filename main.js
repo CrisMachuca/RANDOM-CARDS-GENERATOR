@@ -81,15 +81,15 @@ document.getElementById("changeSizeButton").addEventListener("click", function()
   function getMultiCards() {
       let multiCards = document.querySelectorAll(".multi-card");
   
-      // Agregar clase 'hidden' a todos los elementos excepto al primero
+      // Add class 'hidden' to every element except the first
       multiCards.forEach((card, index) => {
           if (index !== 0) {
               card.classList.add("hidden");
           }
       });
   
-      let numToShow = Math.floor(Math.random() * (multiCards.length - 1)) + 1; // Restar 1 para excluir el primer elemento
-      let shownIndices = [0]; // Añadir índice 0 (primer elemento) al array mostrado
+      let numToShow = Math.floor(Math.random() * (multiCards.length - 1)) + 1; // Subtract 1 to exclude the first element
+      let shownIndices = [0]; 
       for (let i = 0; i < numToShow; i++) {
           let randomIndex;
           do {
@@ -102,8 +102,8 @@ document.getElementById("changeSizeButton").addEventListener("click", function()
   }
 
   document.getElementById("multi-card-button").addEventListener("click", function() {
-    getMultiCards(); // Llama a la función getMultiCards
-    generateNewCard(); // Llama a la función generateNewCard
+    getMultiCards(); 
+    generateNewCard(); 
 });
 };
 
