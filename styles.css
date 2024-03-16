@@ -1,14 +1,103 @@
 
-.green-background {
-    background-color: rgb(30, 126, 30);
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-image: url("img/background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Luckiest guy";
 }
+.cards-container {
+    background-color: rgba(0, 0, 0, 0.452);
+    
+}
+.card {
+    width: 4%;
+	   margin-left: 1%;
+	   float: left;
+}
+
+ #card1 {
+    rotate: -10deg;
+    z-index: 1;
+ }
+
+ #card2 {
+    rotate: -5deg;
+    z-index: 2;
+ }
+
+ #card3 {
+    z-index: 3;
+ }
+
+ #card4 {
+    rotate: 10deg;
+    z-index: 4;
+ }
+
+
 .suit {
     font-size: 100px;
 }
-#number {
+.number {
     font-size: 100px;
+}
+.title {
+    color: rgb(255, 255, 255);
+    font-family: "Luckiest Guy";
+    
 }
 h2 {
     margin-right: 2rem;
-    color: #fff;
+    color: #000000;
+    font-family: "Luckiest Guy";
 }
+.red-suit {
+    color: red;
+}
+.size-container {
+    background-color: #fff;
+    border: 6px solid yellowgreen ;
+}
+label {
+    padding: 0.75em;
+    font-weight:bold;
+}
+input {
+    border: 6px solid yellowgreen;
+}
+
+.btn {
+    background-image: linear-gradient(to right, #52c234 0%, #36b308  51%, #52c234  100%);
+    background-size: 200% auto;
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.3em 0.3em;
+    cursor: pointer;
+    margin-left: 2em;
+    height: 80px;
+  }
+  
+  .btn:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+    background: rgb(9, 185, 9);
+    border: 3px solid black;
+    color:black;
+  }
+  
+  .btn:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  

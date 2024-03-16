@@ -11,34 +11,60 @@
 <body>
     <div class="container-fluid text-center">
         <div class="container-fluid text-center bg-dark shadow">
-            <h1 class="text-bg-dark p-4">Random Cards Generator</h1>
+            <h1 class="p-4 title">Random Cards Generator</h1>
         </div>
-    
-        <div class="container d-flex-column justify-content-center align-items-center green-background p-3">
-            <div id="card" class="container card d-flex justify-content-between align-items-center bg-light shadow-lg mt-4 tarjeta" style="height: 450px; width: 300px">
-                <div id="suit1" class="suit align-self-start"></div>
-                <div id="number"></div>
-                <div id="suit2" class="suit align-self-end"></div>
+        <!--Cards container-->
+        <div class="container d-flex-column justify-content-center align-items-center cards-container p-3">
+            <!--buttons-->
+            <div class="container d-flex justify-content-center align-items-center mt-4 mb-2">
+                <button id="new-card-button" class="btn btn-lg">Only One New Card</button>
+                <button id="multi-card-button" class="btn btn-lg">Random number of Cards</button>
             </div>
-        <div class="container d-flex justify-content-center align-items-center mt-4">
-            <button id="new-card-button" class="btn btn-lg btn-light btn-outline-dark">New Card</button>
-        </div>
-        <div class="container d-flex justify-content-center align-items-center mt-4 mb-5 p-3 bg-dark rounded">
-            <div class="d-flex flex-column flex-md-row align-items-center">
-                <h2 class="me-md-3 mb-md-0">Want to change card size?</h2>
-                <input type="number" id="widthInput" placeholder="Width" value="300">
-                <input type="number" id="heightInput" placeholder="Height" value="450">
-                <button id="changeSizeButton" class="btn btn-success ms-3 me-3">Change Size</button>
+            <!--Card1-->
+            <div id="card1" class="container card d-flex justify-content-between align-items-center bg-light shadow-lg mt-4 mb-3 card-container" style="height: 450px; width: 300px">
+                <div class="suit align-self-start"></div>
+                <div class="number"></div>
+                <div class="suit align-self-end"></div>
             </div>
-        </div>
-    </div>
+            <!--Card2-->
+            <div id="card2" class="container card d-flex justify-content-between align-items-center bg-light shadow-lg mt-4 mb-3 multi-card hidden card2 card-container" style="height: 450px; width: 300px">
+                <div class="suit align-self-start suit1"></div>
+                <div class="number"></div>
+                <div class="suit align-self-end suit2"></div>
+            </div>
+            <!--Card3-->
+            <div id="card3" class="container card d-flex justify-content-between align-items-center bg-light shadow-lg mt-4 mb-3 multi-card hidden card3 card-container card-stack" style="height: 450px; width: 300px">
+                <div class="suit align-self-start suit1"></div>
+                <div class="number"></div>
+                <div class="suit align-self-end suit2"></div>
+            </div>
+            <!--Card4-->
+            <div  id="card4" class="container card d-flex justify-content-between align-items-center bg-light shadow-lg mt-4 mb-3 multi-card hidden card4 card-container card-stack" style="height: 450px; width: 300px">
+                <div class="suit align-self-start suit1"></div>
+                <div class="number"></div>
+                <div class="suit align-self-end suit2"></div>
+            </div>
+            
 
-    <div class="fixed-bottom p-4 bg-dark" style="color: white;">
-        Made with ❤️ by Cris Machuca for
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+            <div class="container d-flex justify-content-center align-items-center mt-4 mb-5 p-2 rounded size-container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-3">
+                    <h2 class="me-md-3 mb-md-0">Do you want to change card size?</h2>
+                    <label for="widthInput">Width</label>
+                    <input type="number" id="widthInput" placeholder="Width" value="300">
+                    <label for="heightInput">Height</label>
+                    <input type="number" id="heightInput" placeholder="Height" value="450">
+                    <button id="changeSizeButton" class="btn btn-lg ms-3 me-3">Change Size</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed-bottom p-4 bg-dark" style="color: white;">
+            Made with ❤️ by Cris Machuca for
+            <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+        </div>
     </div>
-</div>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>

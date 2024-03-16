@@ -1,70 +1,107 @@
-
 window.onload = function() {
-  
   let suit = ["♠", "♣", "♥", "♦"];
   let number = ["A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K"];
 
-  
-  const updateCard = () => {
+  // Función para actualizar una carta
+  const updateCard = (card) => {
+    // Get random number and suit
+    let randomNumber = number[Math.floor(Math.random() * number.length)];
+    let randomSuit = suit[Math.floor(Math.random() * suit.length)];
 
-  // Get random number
+    // Update elements
+    card.querySelector(".number").innerHTML = randomNumber;
+    card.querySelectorAll(".suit").forEach(element => {
+        element.innerHTML = randomSuit;
+        if (randomSuit == "♥" || randomSuit == "♦") {
+            element.classList.add("red-suit");
+            card.querySelector(".number").classList.add("red-suit");
+        } else {
+            element.classList.remove("red-suit");
+            card.querySelector(".number").classList.remove("red-suit");
+        }
+    });
+};
 
-  let randomNumber = number[Math.floor(Math.random() * number.length)];
-  document.getElementById("number").innerHTML = randomNumber;
-  
-  // Get random suit
-
-  let randomSuit = suit[Math.floor(Math.random() * suit.length)];
-  let suitElement1 = document.getElementById("suit1");
-  let suitElement2 = document.getElementById("suit2");
-  suitElement1.innerHTML = randomSuit;
-  suitElement2.innerHTML = randomSuit;
-
-  // Assign the suit color
-
-  if(randomSuit == "♥" || randomSuit == "♦") {
-    suitElement1.style.color = "red";
-    suitElement2.style.color = "red";
-  } else {
-    suitElement1.style.color = ""; // Revert to default color if it's not ♥ or ♦
-    suitElement2.style.color = "";
+  // Función para generar una nueva carta
+  function generateNewCard() {
+      console.log("Generando nueva carta...");
+      let card = document.querySelector(".card-container");
+      updateCard(card);
   }
-  }
 
-  // Generate a new card by pressing a button
+  // Generar una carta al cargar la página
+  generateNewCard();
 
-  document.getElementById("new-card-button").addEventListener("click", () => {
-    updateCard();
-  });
-
-  // Change card at 5-second intervals
-
-  const timer = 5;
-  setInterval(updateCard, timer * 1000);
-
-  
-
-  // Call function onload
-
-  updateCard();
-
-
+  // Generar una nueva carta al hacer clic en el botón
+  document.getElementById("new-card-button").onclick = function() {
+      console.log("Botón 'New Card' clicado.");
+      generateNewCard();
+  };
 
   // Change size using user's input
-  function changeSizeCard () {
+  function changeSizeCard() {
+    let userWidth = parseInt(document.getElementById("widthInput").value, 10);
+    let userHeight = parseInt(document.getElementById("heightInput").value, 10);
 
-    let userWidth = document.getElementById("widthInput").value;
-    let userHeight = document.getElementById("heightInput").value;
-    
-    let myDiv = document.getElementById("card");
-    myDiv.style.width = userWidth + "px";
-    myDiv.style.height = userHeight + "px";
+    const minWidth = 100;
+    const maxWidth = 500;
+    const minHeight = 140;
+    const maxHeight = 700;
 
+    if (userWidth < minWidth) {
+        alert(`El ancho mínimo es ${minWidth}px.`);
+        userWidth = minWidth;
+    } else if (userWidth > maxWidth) {
+        alert(`El ancho máximo permitido es ${maxWidth}px.`);
+        userWidth = maxWidth;
+    }
+
+    if (userHeight < minHeight) {
+        alert(`El alto mínimo es ${minHeight}px.`);
+        userHeight = minHeight;
+    } else if (userHeight > maxHeight) {
+        alert(`El alto máximo permitido es ${maxHeight}px.`);
+        userHeight = maxHeight;
+    }
+
+    let myDivs = document.querySelectorAll(".card-container");
+    myDivs.forEach(div => {
+        div.style.width = `${userWidth}px`;
+        div.style.height = `${userHeight}px`;
+    });
 }
+
 document.getElementById("changeSizeButton").addEventListener("click", function() {
     changeSizeCard();
 });
 
+  // MULTI-CARDS
+  function getMultiCards() {
+      let multiCards = document.querySelectorAll(".multi-card");
 
-}
+      multiCards.forEach(card => {
+          card.classList.add("hidden");
+      });
+
+      let numToShow = Math.floor(Math.random() * multiCards.length) + 1;
+      let shownIndices = [];
+      for (let i = 0; i < numToShow; i++) {
+          let randomIndex;
+          do {
+              randomIndex = Math.floor(Math.random() * multiCards.length);
+          } while (shownIndices.includes(randomIndex));
+          updateCard(multiCards[randomIndex]);
+          multiCards[randomIndex].classList.remove("hidden");
+          shownIndices.push(randomIndex);
+      }
+  }
+
+  document.getElementById("multi-card-button").addEventListener("click", getMultiCards);
+};
+
+
+
+
+
+
 
