@@ -31,6 +31,9 @@ window.onload = function() {
   // Generate a new card when onload
   generateNewCard();
 
+  // Generate a new card every 5 seconds
+  setInterval(generateNewCard, 5000);
+
   // Generate a new card when click
   document.getElementById("new-card-button").onclick = function() {
       generateNewCard();
